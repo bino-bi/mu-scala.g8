@@ -29,7 +29,7 @@ val protocol = project
     name := "$name;format="norm"$-protocol",
 
     libraryDependencies ++= Seq(
-      "io.higherkindness" %% "mu-rpc-service" % "$mu_version$"
+      "io.higherkindness" %% "mu-rpc-service" % V.mu
     ),
     macroSettings,
     muSrcGenIdlType := IdlType.Proto,
@@ -68,7 +68,7 @@ val server = project
       val conf = (Compile / resourceDirectory).value / "application.conf"
       conf -> "conf/application.conf"
     },
-    bashScriptExtraDefines += """addJava "-Dconfig.file=${app_home}/../conf/application.conf""""
+    bashScriptExtraDefines += """addJava "-Dconfig.file=\${app_home}/../conf/application.conf""""
   )
   .enablePlugins(UniversalPlugin)
   .enablePlugins(JavaAppPackaging)
