@@ -21,7 +21,7 @@ lazy val macroSettings: Seq[Setting[_]] = Seq(
   libraryDependencies ++= Seq(
     scalaOrganization.value % "scala-compiler" % scalaVersion.value % Provided
   ),
-  scalacOptions ++= on(2, 13)("-Ymacro-annotations").value
+  scalacOptions += "-Ymacro-annotations"
 )
 
 val protocol = project
