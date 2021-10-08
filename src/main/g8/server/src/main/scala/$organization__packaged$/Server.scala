@@ -1,9 +1,7 @@
 package $organization$
 
 import cats.effect._
-$if(use_protobuf.truthy)$
-import $organization$.hello.Greeter
-$endif$
+import $organization$.protocol.hello.Greeter
 import higherkindness.mu.rpc.server._
 
 object Server extends IOApp {

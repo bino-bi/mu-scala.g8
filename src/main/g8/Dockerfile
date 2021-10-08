@@ -1,0 +1,13 @@
+FROM hseeberger/scala-sbt:11.0.11_1.5.4_2.13.6 AS build
+RUN apt-get install -y unzip
+WORKDIR /usr/src
+COPY . ./
+RUN sbt server/universal:packageBin
+RUN unzip /usr/src/server/target/universal/app.zip
+
+FROM openjdk:11
+COPY --from=build /usr/src/app /usr/app
+WORKDIR /usr/server
+EXPOSE 12345
+CMD ["./bin/profiles-rpc-server"]
+

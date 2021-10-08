@@ -2,9 +2,7 @@ package $organization$
 
 import cats.Applicative
 import cats.syntax.applicative._
-$if(use_protobuf.truthy)$
-import $organization$.hello._
-$endif$
+import $organization$.protocol.hello._
 
 class HappyGreeter[F[_]: Applicative] extends Greeter[F] {
 

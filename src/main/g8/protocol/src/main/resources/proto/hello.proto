@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package $organization;format="package"$;
+package $organization;format="package"$.protocol;
 
 message HelloRequest {
   string name = 1;
