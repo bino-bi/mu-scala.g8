@@ -82,4 +82,4 @@ val root = (project in file("."))
   .settings(
     name := "$name;format="norm"$"
   )
-  .aggregate(protocol, server, client)
+  .aggregate(protocol, server)
