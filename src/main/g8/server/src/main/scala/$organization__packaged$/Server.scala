@@ -19,7 +19,7 @@ object Server extends IOApp {
 
   private def server(config: Config)(implicit service: Greeter[IO]): Resource[IO, Unit] = for {
     serviceDef <- Profiles.bindService[IO]
-    _ <- Resource.eval(Logger[IO].info(s"Setup server with port: ${config.rcp.port}"))
+    _ <- Resource.eval(Logger[IO].info(s"Setup server with port: \${config.rcp.port}"))
     _ <- GrpcServer.defaultServer[IO](config.rcp.port, List(AddService(serviceDef)))
     _ <- Resource.make(Logger[IO].info("Server started"))(_ => Logger[IO].info("Server shutting down ..."))
   } yield ()
