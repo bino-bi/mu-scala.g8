@@ -5,8 +5,8 @@ val V = new {
   val mu = "$mu_version$"
   val logback = "1.2.3"
   val log4cats = "$log4cats_version$"
-  val scalatest = "$pureconfig_version$"
-  val pureconfig = "0.17.0"
+  val scalatest = "3.2.10"
+  val pureconfig = "$pureconfig_version$"
   $if(with_db.truthy)$
   val doobie = "1.0.0-RC1"
   val flywaydb = "7.8.1"
