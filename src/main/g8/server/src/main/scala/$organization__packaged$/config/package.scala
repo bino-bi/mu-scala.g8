@@ -1,4 +1,4 @@
-package bi.bino.next.profiles
+package $organization$
 
 import cats.Applicative
 import cats.effect.{Resource, Sync}
@@ -15,9 +15,10 @@ package object config {
     } yield config
   }
 
-  final case class Config(rcp: RcpConfig, database: DatabaseConfig)
+  final case class Config(rcp: RcpConfig, $if(with_db.truthy)$database: DatabaseConfig$endif$)
 
   final case class RcpConfig(port: Int)
-
+  $if(with_db.truthy)$
   final case class DatabaseConfig(driver: String, url: String, user: String, password: String)
+  $endif$
 }

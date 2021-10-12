@@ -4,11 +4,13 @@ import higherkindness.mu.rpc.srcgen.Model._
 val V = new {
   val mu = "$mu_version$"
   val logback = "1.2.3"
-  val log4cats = "2.1.1"
-  val scalatest = "3.1.2"
+  val log4cats = "$log4cats_version$"
+  val scalatest = "$pureconfig_version$"
   val pureconfig = "0.17.0"
+  $if(with_db.truthy)$
   val doobie = "1.0.0-RC1"
   val flywaydb = "7.8.1"
+  $endif$
 }
 
 inThisBuild(Seq(
@@ -50,10 +52,12 @@ val server = project
       "ch.qos.logback" % "logback-classic" % V.logback,
       "org.typelevel" %% "log4cats-core" % V.log4cats,
       "org.typelevel" %% "log4cats-slf4j" % V.log4cats,
+      $if(with_db.truthy)$
       "org.tpolecat" %% "doobie-core" % V.doobie,
       "org.tpolecat" %% "doobie-postgres" % V.doobie,
       "org.tpolecat" %% "doobie-postgres-circe" % V.doobie,
-      "org.flywaydb"                   % "flyway-core"               % V.flywaydb,
+      "org.flywaydb" % "flyway-core" % V.flywaydb,
+      $endif$
       "org.tpolecat" %% "doobie-hikari" % V.doobie,
       "org.scalatest" %% "scalatest" % V.scalatest % Test,
       "io.higherkindness" %% "mu-rpc-testing" % V.mu % Test

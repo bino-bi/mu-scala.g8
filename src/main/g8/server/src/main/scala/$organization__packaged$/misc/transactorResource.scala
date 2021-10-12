@@ -1,6 +1,6 @@
-package bi.bino.next.profiles.misc
+package $organization$.misc
 
-import bi.bino.next.profiles.config.Config
+import $organization$.config.Config
 import cats.effect.{Async, Clock, Resource, Sync}
 import doobie.ExecutionContexts
 import doobie.hikari.HikariTransactor
