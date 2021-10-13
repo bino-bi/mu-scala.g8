@@ -7,7 +7,7 @@ RUN unzip /usr/src/server/target/universal/app.zip
 
 FROM openjdk:11
 COPY --from=build /usr/src/app /usr/app
-WORKDIR /usr/server
+WORKDIR /usr/app
 EXPOSE 12345
 CMD ["./bin/profiles-rpc-server"]
 
