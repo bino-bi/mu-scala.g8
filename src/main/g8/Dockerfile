@@ -1,4 +1,4 @@
-FROM hseeberger/scala-sbt:11.0.11_$sbt_version$_2.13.6 AS build
+FROM hseeberger/scala-sbt:11.0.11_$sbt_version$_$scala_version$ AS build
 RUN apt-get install -y unzip
 WORKDIR /usr/src
 COPY . ./
