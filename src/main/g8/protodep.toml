@@ -1,0 +1,7 @@
+proto_outdir = "./protocol/src/main/resources/proto"
+
+[[dependencies]]
+  target = "github.com/bino-bi/protocol-buffers-registry/utils"
+  path = "utils/"
+  branch = "master"
+
