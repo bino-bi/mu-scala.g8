@@ -57,8 +57,8 @@ val server = project
       "org.tpolecat" %% "doobie-postgres" % V.doobie,
       "org.tpolecat" %% "doobie-postgres-circe" % V.doobie,
       "org.flywaydb" % "flyway-core" % V.flywaydb,
-      $endif$
       "org.tpolecat" %% "doobie-hikari" % V.doobie,
+      $endif$
       "org.scalatest" %% "scalatest" % V.scalatest % Test,
       "io.higherkindness" %% "mu-rpc-testing" % V.mu % Test
     ),
